@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://quythanh.tk/assets/css/fontawesomepro/all.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div id="toast"></div>
+    <div class="app">
+        <div class="app_left">
+            <ul>
+                <li><h1 class="intro">Welcome to</h1></li>
+                <li class="shop_name"><h1><strong>Dream Sneakers</strong></h1></li>
+                <li class="slogan">Impossible is nothing. </li>
+                <li>
+                    <div class="shoe">
+                        <img src="/data/img/shoe.png" class="frontshoe">
+                        <img src="/data/img/shoe.png" class="backshoe">
+                    </div>
+                    
+                </li>
+                <li>
+                    <ol class="list_social">
+                        <li class="item_social_media">
+                            <div>
+                                <i class="fa-brands fa-facebook" id="fb"></i>
+                            </div>
+                        </li>
+                        <li class="item_social_media">
+                            <div>
+                                <i class="fa-brands fa-youtube" id="ytb"></i>
+                            </div>
+                        </li>
+                        <li class="item_social_media">
+                            <div>
+                                <i class="fa-brands fa-twitter" id="twt"></i>
+                            </div>
+                        </li> 
+                        <li class="item_social_media">
+                            <div>
+                                <i class="fa-brands fa-instagram"id="ig"></i>
+                            </div>
+                        </li> 
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <div class="app_right">
+            <div class="app_right_form_register">
+                <div class="app_right_form_header">
+                    <b>Sign up to Dream Sneakers</b>
+                </div>
+                <div class="nofication old">
+                    Already have an account?<p class="changesignin">Login</p>
+                </div>
+                <div class="input-group">
+                    <input autocomplete="off" type="text" id="firstname" placeholder=" " class="input-group__inp">
+                        
+                    </input>
+                    <label class="input-group__label" for="firstname">
+                        First name
+                    </label>
+                </div>
+
+                <div class="input-group">
+                    <input autocomplete="off" type="text" id="lastname" placeholder=" " class="input-group__inp">
+                        
+                    </input>
+                    <label class="input-group__label" for="firstname">
+                        Last name
+                    </label>
+                </div>
+
+                <div class="input-group">
+                    <input autocomplete="off" type="email" id="emailnew" placeholder=" " class="input-group__inp">
+
+                    </input>
+                    <label class="input-group__label" for="username">
+                        Email
+                    </label>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="passwordnew" placeholder=" " class="input-group__inp">
+                        
+                    </input>
+                    <label class="input-group__label" for="passwordnew">
+                        Password
+                    </label>
+                </div>
+                <div onclick="showWarningToast();" class="input-group__submit btn sign-up">
+                    Sign Up
+                </div>
+                <div class="list-item_signup signup_gg" onclick="showWarningToast();">
+                    <i class="fa-brands fa-google"></i>
+                    sign up with google
+                </div>
+                <div class="list-item_signup signup_fb"  onclick="showWarningToast();">
+                    <i class="fa-brands fa-facebook"></i>
+                    sign up with facebook
+                </div>
+
+            </div>
+
+            <div class="app_right_form_signin">
+                <div class="app_right_form_header">
+                    <b>Sign in to Dream Sneakers</b>
+                </div>
+                <div class="nofication new">
+                    Create a new account?<p class="changesignup">Sign up</p>
+                </div>
+
+                <div class="input-group">
+                    <input autocomplete="off" type="emailemail" id="emailold" placeholder=" " class="input-group__inp">
+
+                    </input>
+                    <label class="input-group__label" for="username">
+                        Email
+                    </label>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="passwordold" placeholder=" " class="input-group__inp">
+                        
+                    </input>
+                    <label class="input-group__label" for="password">
+                        Password
+                    </label>
+                </div>
+                <div onclick="showWarningToast();" class="input-group__submit btn sign-up">
+                    Sign in
+                </div>
+                <div class="list-item_signup signup_gg" onclick="showWarningToast();">
+                    <i class="fa-brands fa-google"></i>
+                    log in with google
+                </div>
+                <div class="list-item_signup signup_fb" onclick="showWarningToast();">
+                    <i class="fa-brands fa-facebook"></i>
+                    log in with facebook
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="/js/toast.js"></script>
+    <script>
+        const formsignin = document.querySelector(".app_right_form_signin");
+        const formsignup = document.querySelector(".app_right_form_register");
+        const redirectSignUp = document.querySelector(".nofication.new");
+        const redirectSignIn = document.querySelector(".nofication.old");
+        redirectSignIn.onclick = () => {
+            formsignup.classList.add("active")
+            formsignin.classList.add("active")
+            cleadData();
+        }
+        redirectSignUp.onclick = () => {
+            formsignup.classList.remove("active")
+            formsignin.classList.remove("active")
+        }
+      
+        function showWarningToast() {
+          toast({
+            title: "Can't not log in!",
+            message: "We are maintaining this feature.",
+            type: "warning",
+            duration: 5000
+          });
+        }
+        function cleadData(){
+            var fname = document.getElementById("lastname");
+            var lname = document.getElementById("firstname");
+            var mailnew = document.getElementById("emailnew");
+            var passnew = document.getElementById("passwordnew");
+            var mailold = document.getElementById("emailold");
+            var passold = document.getElementById("passwordold");
+            setTimeout(() => { 
+                if (fname.value !="") {
+                    fname.value = "";
+                }
+                if (lname.value !="") {
+                    lname.value = "";
+                }
+                if (mailnew.value !="") {
+                    mailnew.value = "";
+                }
+                if (passnew.value !="") {
+                    passnew.value = "";
+                }
+                if (mailold.value !="") {
+                    mailold.value = "";
+                }
+                if (passold.value !="") {
+                    passold.value = "";
+                }
+            }, 1000);
+        }
+      </script>
+</body>
+</html>
