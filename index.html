@@ -89,7 +89,7 @@
                         Password
                     </label>
                 </div>
-                <div onclick="showWarningToast();" class="input-group__submit btn sign-up">
+                <div id="btnsignup" class="input-group__submit btn sign-up">
                     Sign Up
                 </div>
                 <div class="list-item_signup signup_gg" onclick="showWarningToast();">
@@ -112,10 +112,10 @@
                 </div>
 
                 <div class="input-group">
-                    <input autocomplete="off" type="emailemail" id="emailold" placeholder=" " class="input-group__inp">
+                    <input autocomplete="off" type="email" id="emailold" placeholder=" " class="input-group__inp">
 
                     </input>
-                    <label class="input-group__label" for="username">
+                    <label class="input-group__label" for="email">
                         Email
                     </label>
                 </div>
@@ -128,7 +128,7 @@
                         Password
                     </label>
                 </div>
-                <div onclick="showWarningToast();" class="input-group__submit btn sign-up">
+                <div id="btnsignin" class="input-group__submit btn sign-in">
                     Sign in
                 </div>
                 <div class="list-item_signup signup_gg" onclick="showWarningToast();">
@@ -145,14 +145,33 @@
     </div>
     <script src="/js/toast.js"></script>
     <script>
+        const usersArr = [
+            {
+                id:0,
+                firstName :'Tran',
+                lastName :'Tien',
+                mail : 'tranantien2801@gmail.com',
+                pass : 'Tien280103$'
+            }
+        ]
+        const users = JSON.parse(localStorage.getItem("users")) || usersArr
+
         const formsignin = document.querySelector(".app_right_form_signin");
         const formsignup = document.querySelector(".app_right_form_register");
         const redirectSignUp = document.querySelector(".nofication.new");
         const redirectSignIn = document.querySelector(".nofication.old");
+        const btnSignin = document.getElementById("btnsignin");
+        const btnSignup = document.getElementById("btnsignup");
+        var lname = document.getElementById("lastname");
+        var fname = document.getElementById("firstname");
+        var mailnew = document.getElementById("emailnew");
+        var passnew = document.getElementById("passwordnew");            
+        var mailold = document.getElementById("emailold");
+        var passold = document.getElementById("passwordold");
         redirectSignIn.onclick = () => {
             formsignup.classList.add("active")
             formsignin.classList.add("active")
-            cleadData();
+            cleanData();
         }
         redirectSignUp.onclick = () => {
             formsignup.classList.remove("active")
@@ -167,13 +186,29 @@
             duration: 5000
           });
         }
-        function cleadData(){
-            var fname = document.getElementById("lastname");
-            var lname = document.getElementById("firstname");
-            var mailnew = document.getElementById("emailnew");
-            var passnew = document.getElementById("passwordnew");
-            var mailold = document.getElementById("emailold");
-            var passold = document.getElementById("passwordold");
+        function checkStrongPass(string){
+            var isStrong = 0;
+            for(let i of string){
+                if(string.charAt(i) == string.charAt(i).toUpperCase()){
+                    isStrong++;
+                    break;
+                }
+            }
+            for(let i of string){
+                if(Number.isInteger(Number(string.charAt(i)))){
+                    isStrong++;
+                    break;
+                }
+            }
+            if(string.includes('@') || string.includes('$') || string.includes('#') || string.includes('%') || string.includes('!')){
+                isStrong++;
+            }
+            if(isStrong == 3){
+                return true;
+            }
+            return false;
+        }
+        function cleanData(){
             setTimeout(() => { 
                 if (fname.value !="") {
                     fname.value = "";
@@ -195,6 +230,162 @@
                 }
             }, 1000);
         }
+        btnSignin.onclick = () =>{
+            const mailUser = mailold.value.trim()
+            const pwUser = passold.value.trim()
+
+            if(!mailUser || !pwUser){
+                if(!mailUser){
+                    toast({
+                        title: "Can't not log in!",
+                        message: "Please fill in your mail.",
+                        type: "warning",
+                        duration: 5000
+                    });
+                    mailold.focus();
+                }
+                else{
+                    toast({
+                        title: "Can't not log in!",
+                        message: "Please fill in your password.",
+                        type: "warning",
+                        duration: 5000
+                    });
+                    passold.focus();
+                }
+            }else{
+                const user = users.find(user => user.mail === mailUser)
+                if(!user){
+                    toast({
+                        title: "your mail is not exist!",
+                        message: "please check again your mail",
+                        type: "error",
+                        duration: 3000
+                    });  
+                }
+                const pw = user.pass === pwUser
+                if (!pw) {
+                    toast({
+                        title: "Error!",
+                        message: "Password not match!",
+                        type: "error",
+                        duration: 3000
+                    });
+                    passold.focus();
+                }
+                else{
+                    window.location.href="./home.html"
+                }
+            }
+        }
+        btnSignup.onclick = () =>{
+            var firstNameUser = fname.value.trim();
+            var lastNameUser = lname.value.trim();
+            var newMailUser = mailnew.value.trim();
+            var newPassUser = passnew.value.trim();
+            if(!newMailUser || !newPassUser || !firstNameUser || !lastNameUser){
+                if(!firstNameUser){
+                    toast({
+                        title: "Can't not log in!",
+                        message: "Please fill in your first name!.",
+                        type: "warning",
+                        duration: 5000
+                    });
+                    fname.focus();
+                }else{
+                    if(!lastNameUser){
+                        toast({
+                            title: "Can't not log in!",
+                            message: "Please fill in your last name!",
+                            type: "warning",
+                            duration: 5000
+                        });
+                        lname.focus();
+                   }else{
+                       if(!newMailUser){
+                            toast({
+                                title: "Can't not log in!",
+                                message: "Please fill in your new mail!",
+                                type: "warning",
+                                duration: 5000
+                            });
+                            mailnew.focus();
+                        }else{
+                            toast({
+                                title: "Can't not log in!",
+                                message: "Please fill in your new password",
+                               type: "warning",
+                                duration: 5000
+                            });
+                            passnew.focus();
+                        }
+                    }
+                }
+            }
+            var continuee = false;
+            if(newMailUser){
+                var result = (newMailUser.includes('@gmail.com') || newMailUser.includes('edu.vn'))&&newMailUser.includes('@')
+                if(!result){
+                    toast({
+                        title: "This mail is error!",
+                        message: "the mail must have \'@gmail.com\'",
+                        type: "warning",
+                        duration: 3000
+                    });
+                    mailnew.focus();
+                }else{
+                    var test = users.find(test => test.mail === newMailUser);
+                    if(test){
+                        toast({
+                            title: "This email have been used!",
+                            message: "please choose another email",
+                            type: "warning",
+                            duration: 3000
+                        });
+                        mailnew.focus();
+                    }else{
+                        continuee = true;
+                    }
+
+                }
+            }
+            if(newPassUser && continuee){
+                if(newPassUser.length < 8){
+                    toast({
+                        title: "Warning",
+                        message: "Password length must be at least 8 characters",
+                        type: "warning",
+                        duration: 3000
+                    });
+                    passnew.focus();
+                }else{
+                    if(!checkStrongPass(newPassUser)){
+                        toast({
+                            title: "Warning",
+                            message: "Password must have 1 special character 1 number and 1 capital letter!",
+                            type: "warning",
+                            duration: 3000
+                        });
+                        passnew.focus();
+                    }else{
+                        const obj = {
+                                id: users.length + 1,
+                                firstName : firstNameUser,
+                                lastName : lastNameUser,
+                                mail : newMailUser,
+                                pass : newPassUser
+                        }
+                        users.push(obj)
+                        localStorage.setItem("users", JSON.stringify(users))
+                        formsignup.classList.add("active")
+                        formsignin.classList.add("active")
+                        cleanData();
+                    }
+                }
+            }
+        }
+
+        
       </script>
 </body>
 </html>
