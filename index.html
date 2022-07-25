@@ -30,22 +30,22 @@
                     <ol class="list_social">
                         <li class="item_social_media">
                             <div>
-                                <i class="fa-brands fa-facebook" id="fb"></i>
+                                <a href="https://www.facebook.com/profile.php?id=100018971912455"><i class="fa-brands fa-facebook" id="fb"></i></a>
                             </div>
                         </li>
                         <li class="item_social_media">
                             <div>
-                                <i class="fa-brands fa-youtube" id="ytb"></i>
+                                <a href="https://www.youtube.com/channel/UCVDTDMoIJ-IYBdi8tdAwofw"><i class="fa-brands fa-youtube" id="ytb"></i></a>
                             </div>
                         </li>
                         <li class="item_social_media">
                             <div>
-                                <i class="fa-brands fa-twitter" id="twt"></i>
+                                <a href="https://twitter.com/TrnAnTin1"><i class="fa-brands fa-twitter" id="twt"></i></a>
                             </div>
                         </li> 
                         <li class="item_social_media">
                             <div>
-                                <i class="fa-brands fa-instagram"id="ig"></i>
+                                <a href="https://www.instagram.com/supertien12/"><i class="fa-brands fa-instagram"id="ig"></i></a>
                             </div>
                         </li> 
                     </ol>
@@ -101,11 +101,11 @@
                 </div>
                 <div class="list-item_signup signup_gg" onclick="showWarningToast();">
                     <i class="fa-brands fa-google"></i>
-                    sign up with google
+                    Sign up with google
                 </div>
                 <div class="list-item_signup signup_fb"  onclick="showWarningToast();">
                     <i class="fa-brands fa-facebook"></i>
-                    sign up with facebook
+                    Sign up with facebook
                 </div>
 
             </div>
@@ -141,11 +141,11 @@
                 </div>
                 <div class="list-item_signup signup_gg" onclick="showWarningToast();">
                     <i class="fa-brands fa-google"></i>
-                    log in with google
+                    Log in with google
                 </div>
                 <div class="list-item_signup signup_fb" onclick="showWarningToast();">
                     <i class="fa-brands fa-facebook"></i>
-                    log in with facebook
+                    Log in with facebook
                 </div>
 
             </div>
@@ -209,7 +209,17 @@
                     break;
                 }
             }
-            if(string.includes('@') || string.includes('$') || string.includes('#') || string.includes('%') || string.includes('!')){
+            if(string.includes('@') 
+            || string.includes('$') 
+            || string.includes('#')
+            || string.includes('%')
+            || string.includes('!')
+            || string.includes('&')
+            || string.includes('-')
+            || string.includes('/')
+            || string.includes('(')
+            || string.includes(')')
+            || string.includes('_')){
                 isStrong++;
             }
             if(isStrong == 3){

@@ -78,6 +78,10 @@ ul {
     font-size: 4rem;
     margin:auto 1.6rem;
 }
+.item_social_media a{
+  text-decoration: none; 
+  color: black;
+}
 #fb,
 #ytb,
 #twt,
@@ -361,6 +365,17 @@ ul {
     cursor: pointer;
   }
 /* ======= Responsive ======== */
+@media only screen and (max-width: 1200px){
+  .item_social_media{
+    font-size: 3rem;
+  }
+  .list-item_signup{
+    font-size: 1.6rem;
+  }
+  .app{
+    width: 80%;
+  }
+}
 @media only screen and (max-width: 850px) {
   .app_left{
     width: 0%;
@@ -370,13 +385,11 @@ ul {
     width: 100%;
     border-radius: 20px;
   }
-}
-@media only screen and (max-width: 1200px){
-  .item_social_media{
-    font-size: 3rem;
-  }
   .list-item_signup{
-    font-size: 1.6rem;
+    font-size: 1rem;
+  }
+  .app{
+    width: 90%;
   }
 }
   
