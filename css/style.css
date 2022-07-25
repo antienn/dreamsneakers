@@ -8,14 +8,14 @@ html {
     font-size: 62.5%;
     user-select: none;
     font-family: sans-serif;
+    overflow-x: hidden;
 }
 body {
-    
     background-image: url('../data/img/bgweb.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    overflow: hidden;
+    background-position: center;
 }
 .app{
     margin: 0 auto;
@@ -360,4 +360,24 @@ ul {
     color: rgba(0, 0, 0, 0.3);
     cursor: pointer;
   }
+/* ======= Responsive ======== */
+@media only screen and (max-width: 850px) {
+  .app_left{
+    width: 0%;
+    display: none;
+  }
+  .app_right{
+    width: 100%;
+    border-radius: 20px;
+  }
+}
+@media only screen and (max-width: 1200px){
+  .item_social_media{
+    font-size: 3rem;
+  }
+  .list-item_signup{
+    font-size: 1.6rem;
+  }
+}
   
+

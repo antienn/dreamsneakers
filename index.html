@@ -154,7 +154,7 @@
         document.addEventListener('contextmenu', event => event.preventDefault());
         const usersArr = [
             {
-                id:0,
+                id:1,
                 firstName :'Tran',
                 lastName :'Tien',
                 mail : 'tranantien2801@gmail.com',
@@ -281,6 +281,7 @@
                     passold.focus();
                 }
                 else{
+                    localStorage.setItem("savename",user.lastName)
                     window.location.href="./home.html"
                 }
             }
