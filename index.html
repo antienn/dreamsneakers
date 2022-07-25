@@ -94,6 +94,7 @@
                     <label class="input-group__label" for="passwordnew">
                         Password
                     </label>
+                    <i class="far fa-eye" id="togglePasswordnew" style="margin-left: -30px; cursor: pointer;"></i>
                 </div>
                 <div id="btnsignup" class="input-group__submit btn sign-up">
                     Sign Up
@@ -133,6 +134,7 @@
                     <label class="input-group__label" for="password">
                         Password
                     </label>
+                    <i class="far fa-eye" id="togglePasswordold" style="margin-left: -30px; cursor: pointer;"></i>
                 </div>
                 <div id="btnsignin" class="input-group__submit btn sign-in">
                     Sign in
@@ -392,6 +394,26 @@
                 }
             }
         }
+        const togglePasswordold = document.querySelector('#togglePasswordold');
+        const passwordold = document.querySelector('#passwordold');
+        togglePasswordold.addEventListener('click', function (e) {
+            // toggle the type attribute
+            const type = passwordold.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordold.setAttribute('type', type);
+            // toggle the eye slash icon
+            this.classList.toggle('fa-eye-slash');
+        });
+
+        const togglePasswordnew = document.querySelector('#togglePasswordnew');
+        const passwordnew = document.querySelector('#passwordnew');
+        togglePasswordnew.addEventListener('click', function (e) {
+            // toggle the type attribute
+            const type = passwordnew.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordnew.setAttribute('type', type);
+            // toggle the eye slash icon
+            this.classList.toggle('fa-eye-slash');
+        });
+        
 
         
       </script>
