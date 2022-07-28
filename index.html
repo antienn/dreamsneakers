@@ -342,8 +342,8 @@
                     }
                 }
             }
-            var continuee = false;
-            if(newMailUser){
+            else{
+                var continuee = false;
                 var result = (newMailUser.includes('@gmail.com') || newMailUser.includes('edu.vn'))&&newMailUser.includes('@')
                 if(!result){
                     toast({

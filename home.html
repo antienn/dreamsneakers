@@ -4,9 +4,191 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dream Sneakers</title>
+    <link rel="SHORTCUT ICON" href= "./data/img/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://quythanh.tk/assets/css/fontawesomepro/all.css">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/shoe.css">
+    <link rel="stylesheet" href="./css/intro.css">
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
 </head>
-<body>
+<body id="body">
+    <div class="blackPage">
+    </div>
+    <div class="app">
+        <div class="header">
+            <ol>
+                <li>
+                    <img src="./data/img/shoe.png" height="50px" >
+                </li>
+                <li>
+                    <ol>
+                        <div class="option" id="brand">
+                            Brand
+                            <ul class="brand__subnav">
+                                <li class="subnav__item" id="Nike">Nike</li>
+                                <li class="subnav__item" id="Adidas">Adidas</li>
+                                <li class="subnav__item" id="Fila">Fila</li>
+                                <li class="subnav__item" id="Puma">Puma</li>
+                                <li class="subnav__item" id="New Balance">New Balance</li>
+                                <li class="subnav__item" id="Under Armour">Under Armour</li>
+                                <li class="subnav__item" id="Balenciaga">Balenciaga</li>
+                                <li class="subnav__item" id="Burberry">Burberry</li>
+                            </ul>
+                        </div>
+                        <div class="option">Customise</div>
+                        <div class="option" id="welcomename"></div>
+                    </ol>
+                </li>
+                <li>
+
+                </li>
+                <li>
+                    <div class="header-right-user">
+                        <i class="fa-solid fa-user-large"></i>
+                        <ul class="profile__subnav">
+                            <li class="profile__item">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                                Edit profile
+                            </li>
+                            <li class="profile__item logout">
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                                Log out
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="./data/img/banner1final.jpg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
     
+    <div class="content">
+        <p>best seller</p>
+        <div class="content__bestSeller"></div> 
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="./data/infor/data.js"></script> 
+    <script src="./js/showshoe.js"></script> 
+    <script>
+        const listShoeShow = document.querySelector('.content__bestSeller');
+        const userImg = document.querySelector(".header-right-user");
+        const profile = document.querySelector(".profile__subnav");
+        const blockScroll = document.getElementById("body");
+        const blackPage = document.querySelector(".blackPage");
+        const titleBrand =document.getElementById("brand");
+        const brand = document.querySelector(".brand__subnav");
+        var setName = document.getElementById("welcomename");
+        const name = localStorage.getItem('savename');
+        document.getElementById("welcomename").innerHTML = "Hi, " + name;
+        localStorage.removeItem('savename');
+        // if(!name){
+        //     window.location.href="./index.html"
+        // } 
+        titleBrand.onclick = () => {
+            if(!titleBrand.classList.contains("active")){
+                brand.classList.add("active")
+                titleBrand.classList.add("active")
+                blackPage.classList.add("active")
+                blockScroll.classList.add("active")
+                profile.classList.remove("active")
+                userImg.classList.remove("active")
+            }else{
+                brand.classList.remove("active")
+                titleBrand.classList.remove("active")
+                blackPage.classList.remove("active")
+                blockScroll.classList.remove("active")
+            }
+        }
+        blackPage.onclick = () => {
+            if(blackPage.classList.contains("active")){
+                profile.classList.remove("active")
+                brand.classList.remove("active")
+                titleBrand.classList.remove("active")
+                blackPage.classList.remove("active")
+                blockScroll.classList.remove("active")
+                userImg.classList.remove("active")
+            }
+        }
+        userImg.onclick = () => {
+            if(!profile.classList.contains("active")){
+                userImg.classList.add("active")
+                profile.classList.add("active")
+                blackPage.classList.add("active")
+                blockScroll.classList.add("active")
+                brand.classList.remove("active")
+                titleBrand.classList.remove("active")
+            }else{
+                profile.classList.remove("active")
+                blackPage.classList.remove("active")
+                blockScroll.classList.remove("active")
+                userImg.classList.remove("active")
+            }
+        }
+        profile.onclick = function (e){
+            if(e.target.closest(".logout")){
+                window.location.href="./index.html"
+            }
+        }
+
+        var count = document.querySelectorAll(".btn_buy.soldOut");
+        for (let i = 0; i < count.length; i++) {
+            count[i].innerHTML = "Sold Out";
+        }
+        // swiper library
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 30,
+            effect: "fade",
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+        //quickview
+        // var quickview = document.querySelectorAll(".big_view");
+        // tmpImg = document.createElement('img');
+        // for (let i = 0; i < listShoe.length; i++) {
+        //     quickview[i].onclick = function (e){
+        //         if(e.target.closest(".big_view")){
+        //             blackPage.classList.add("active")
+        //             tmpImg.setAttribute('src',listShoe[e.target.id-1].image,);
+        //             blackPage.appendChild(tmpImg);
+        //         }
+        //     }
+        // }
+
+        //sort shoe
+        
+        var sortShoe = document.querySelectorAll('.subnav__item');
+        for (let i = 0; i < sortShoe.length; i++) {
+            sortShoe[i].onclick = function (e){
+                var nameBrand = e.target.id;
+                listShoeShow.innerHTML='';
+                showShoe(0,sortBrand(listShoe,nameBrand),document.querySelector('.content__bestSeller'));
+            }
+        }
+        
+    </script>
 </body>
+
 </html>

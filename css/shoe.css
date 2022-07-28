@@ -1,0 +1,105 @@
+.shoe{
+    width: 280px;
+    height: 550px;
+    background-color: white;
+    margin: 0 20px 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.shoe_img{
+    width: 100%;
+    height: 50%;
+}
+.shoe_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+}
+.shoename{
+    font-size: 2.8rem;
+    padding: 5px 20px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.shoebrand{
+    font-size: 2rem;
+    padding: 5px 30px;
+}
+.priceshoe p {
+    display:inline;
+    font-size: 2rem;
+}
+.current_price{
+    padding: 10px 30px;
+    color:#d8a52b;
+}
+.old_price{
+    color:#bfbfbf;
+    text-decoration: line-through;
+}
+.btn_buy{
+    text-align: center;
+    font-size: 2.4rem;
+    background-color: #ffc230;
+    padding: 5px;
+    width: 70%;
+    margin: 10px auto;
+    border-radius: 10px;
+    color: #ffffff;
+    transition: all .4s linear;
+}
+.btn_buy:hover{
+    background-color: #d09f2a;
+    cursor:pointer;
+}
+.btn_buy:hover i{
+    animation: animationbuy 2s infinite;
+}
+
+
+.big_view{
+    font-size: 2.4rem;
+    text-align: center;
+    padding: 5px;
+    background-color: #ffc230;
+    width: 70%;
+    margin: 10px auto;
+    border-radius: 10px;
+    color: #ffffff;
+    transition: all .4s linear;
+    text-transform:uppercase;
+    font-weight: 500;
+}
+.big_view:hover{
+    background-color: #d09f2a;
+    cursor: zoom-in;
+}
+
+
+@keyframes animationbuy {
+    0%{transform: rotate(0deg);}
+    25%{transform: rotate(20deg);}
+    50%{transform: rotate(0deg);}
+    75%{transform: rotate(-20deg);}
+    100%{transform: rotate(0deg);}
+}
+.content__bestSeller{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px 0;
+}
+
+.btn_buy.soldOut{
+    text-align: center;
+    font-size: 2.4rem;
+    background-color: #bfbfbf;
+    animation: none;
+    cursor:not-allowed;	
+}
+
