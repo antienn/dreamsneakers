@@ -1,431 +1,265 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://quythanh.tk/assets/css/fontawesomepro/all.css">
-    <link rel="stylesheet" href="./css/style.css">
     <title>Dream Sneakers</title>
     <link rel="SHORTCUT ICON" href= "./data/img/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://quythanh.tk/assets/css/fontawesomepro/all.css">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/shoe.css">
+    <link rel="stylesheet" href="./css/intro.css">
+    <link rel="stylesheet" href="./css/modal.css">
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+
     <!-- META FOR FACEBOOK -->
     <meta property="og:image" itemprop="thumbnailUrl" content="https://i.imgur.com/wSU9Arq.png"/>
     <meta property="og:image:width" content="1000"/>
     <meta property="og:image:height" content="500"/>
     <meta content="hệ thống bán giày lớn nhất thế giới" itemprop="headline" property="og:title"/>
-    
+
 </head>
-<body>
-    <div id="toast"></div>
-    <div class="app">
-        <div class="app_left">
-            <ul>
-                <li><h1 class="intro">Welcome to</h1></li>
-                <li class="shop_name"><h1><strong>Dream Sneakers</strong></h1></li>
-                <li class="slogan">Impossible is nothing. </li>
-                <li>
-                    <img src="./data/img/shoe.png">
-                </li>
-                <li>
-                    <ol class="list_social">
-                        <li class="item_social_media">
-                            <div>
-                                <a href="https://www.facebook.com/profile.php?id=100018971912455"><i class="fa-brands fa-facebook" id="fb"></i></a>
-                            </div>
-                        </li>
-                        <li class="item_social_media">
-                            <div>
-                                <a href="https://www.youtube.com/channel/UCVDTDMoIJ-IYBdi8tdAwofw"><i class="fa-brands fa-youtube" id="ytb"></i></a>
-                            </div>
-                        </li>
-                        <li class="item_social_media">
-                            <div>
-                                <a href="https://twitter.com/TrnAnTin1"><i class="fa-brands fa-twitter" id="twt"></i></a>
-                            </div>
-                        </li> 
-                        <li class="item_social_media">
-                            <div>
-                                <a href="https://www.instagram.com/supertien12/"><i class="fa-brands fa-instagram"id="ig"></i></a>
-                            </div>
-                        </li> 
-                    </ol>
-                </li>
-            </ul>
-        </div>
-        <div class="app_right">
-            <div class="app_right_form_register">
-                <div class="app_right_form_header">
-                    <b>Sign up to Dream Sneakers</b>
-                </div>
-                <div class="nofication old">
-                    Already have an account?<p class="changesignin">Login</p>
-                </div>
-                <div class="input-group">
-                    <input autocomplete="off" type="text" id="firstname" placeholder=" " class="input-group__inp">
-                        
-                    </input>
-                    <label class="input-group__label" for="firstname">
-                        First name
-                    </label>
-                </div>
-
-                <div class="input-group">
-                    <input autocomplete="off" type="text" id="lastname" placeholder=" " class="input-group__inp">
-                        
-                    </input>
-                    <label class="input-group__label" for="firstname">
-                        Last name
-                    </label>
-                </div>
-
-                <div class="input-group">
-                    <input autocomplete="off" type="email" id="emailnew" placeholder=" " class="input-group__inp">
-
-                    </input>
-                    <label class="input-group__label" for="username">
-                        Email
-                    </label>
-                </div>
-
-                <div class="input-group">
-                    <input type="password" id="passwordnew" placeholder=" " class="input-group__inp">
-                        
-                    </input>
-                    <label class="input-group__label" for="passwordnew">
-                        Password
-                    </label>
-                    <i class="far fa-eye" id="togglePasswordnew" style="margin-left: -30px; cursor: pointer;"></i>
-                </div>
-                <div id="btnsignup" class="input-group__submit btn sign-up">
-                    Sign Up
-                </div>
-                <div class="list-item_signup signup_gg" onclick="showWarningToast();">
-                    <i class="fa-brands fa-google"></i>
-                    Sign up with google
-                </div>
-                <div class="list-item_signup signup_fb"  onclick="showWarningToast();">
-                    <i class="fa-brands fa-facebook"></i>
-                    Sign up with facebook
-                </div>
-
+<body id="body">
+    <div class="modal hide">
+        <div class="modal__inner">
+            <div class="modal__header">
+                <div class="modal__title">Edit profile</div>
+                <i class="fas fa-times"></i>
             </div>
-
-            <div class="app_right_form_signin">
-                <div class="app_right_form_header">
-                    <b>Sign in to Dream Sneakers</b>
+            <div class="modal__body">
+                <div>
+                    <label for="fname">First name:</label>
+                    <input type="text" id="fname" name="fname" value="">
                 </div>
-                <div class="nofication new">
-                    Create a new account?<p class="changesignup">Sign up</p>
+                <div>
+                    <label for="lname">Last name:</label>
+                    <input type="text" id="lname" name="lname" value="">
                 </div>
-
-                <div class="input-group">
-                    <input autocomplete="off" type="email" id="emailold" placeholder=" " class="input-group__inp">
-
-                    </input>
-                    <label class="input-group__label" for="email">
-                        Email
-                    </label>
-                </div>
-
-                <div class="input-group">
-                    <input type="password" id="passwordold" placeholder=" " class="input-group__inp">
-                        
-                    </input>
-                    <label class="input-group__label" for="password">
-                        Password
-                    </label>
-                    <i class="far fa-eye" id="togglePasswordold" style="margin-left: -30px; cursor: pointer;"></i>
-                </div>
-                <div id="btnsignin" class="input-group__submit btn sign-in">
-                    Sign in
-                </div>
-                <div class="list-item_signup signup_gg" onclick="showWarningToast();">
-                    <i class="fa-brands fa-google"></i>
-                    Log in with google
-                </div>
-                <div class="list-item_signup signup_fb" onclick="showWarningToast();">
-                    <i class="fa-brands fa-facebook"></i>
-                    Log in with facebook
-                </div>
-
+            </div>
+            <div class="modal__footer">
+                <button class="modal__button-apply">Apply</button>
             </div>
         </div>
     </div>
-    <script src="./js/toast.js"></script>
+
+    <div class="blackPage">
+    </div>
+    <div class="app">
+        <div class="header">
+            <ol>
+                <li>
+                    <img src="./data/img/shoe.png" height="50px" >
+                </li>
+                <li>
+                    <ol>
+                        <div class="option" id="home">Home</div>
+                        <div class="option" id="brand">
+                            Brand
+                            <ul class="brand__subnav">
+                                <li class="subnav__item" id="Nike">Nike</li>
+                                <li class="subnav__item" id="Adidas">Adidas</li>
+                                <li class="subnav__item" id="Fila">Fila</li>
+                                <li class="subnav__item" id="Puma">Puma</li>
+                                <li class="subnav__item" id="New Balance">New Balance</li>
+                                <li class="subnav__item" id="Under Armour">Under Armour</li>
+                                <li class="subnav__item" id="Balenciaga">Balenciaga</li>
+                                <li class="subnav__item" id="Burberry">Burberry</li>
+                            </ul>
+                        </div>
+                        <div class="option" id="welcomename"></div>
+                    </ol>
+                </li>
+                <li>
+
+                </li>
+                <li>
+                    <div class="header-right-user">
+                        <i class="fa-solid fa-user-large"></i>
+                        <ul class="profile__subnav">
+                            <li class="profile__item editprofile">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                                Edit profile
+                            </li>
+                            <li class="profile__item logout">
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                                Log out
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="login">login</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="./data/img/banner1final.jpg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+    
+    <div class="content">
+        <p>best seller</p>
+        <div class="content__bestSeller" id="scrollhere"></div> 
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="./data/infor/data.js"></script> 
+    <script src="./js/showshoe.js"></script>  
+    <script src="./js/toast.js"></script>  
     <script>
-        document.addEventListener('contextmenu', event => event.preventDefault());
-        const usersArr = [
-            {
-                id:1,
-                firstName :'Tran',
-                lastName :'Tien',
-                mail : 'tranantien2801@gmail.com',
-                pass : 'Tien280103$'
-            }
-        ]
-        const users = JSON.parse(localStorage.getItem("users")) || usersArr
-
-        const formsignin = document.querySelector(".app_right_form_signin");
-        const formsignup = document.querySelector(".app_right_form_register");
-        const redirectSignUp = document.querySelector(".nofication.new");
-        const redirectSignIn = document.querySelector(".nofication.old");
-        const btnSignin = document.getElementById("btnsignin");
-        const btnSignup = document.getElementById("btnsignup");
-        var lname = document.getElementById("lastname");
-        var fname = document.getElementById("firstname");
-        var mailnew = document.getElementById("emailnew");
-        var passnew = document.getElementById("passwordnew");            
-        var mailold = document.getElementById("emailold");
-        var passold = document.getElementById("passwordold");
-        redirectSignIn.onclick = () => {
-            formsignup.classList.add("active")
-            formsignin.classList.add("active")
-            cleanData();
-        }
-        redirectSignUp.onclick = () => {
-            formsignup.classList.remove("active")
-            formsignin.classList.remove("active")
-        }
-      
-        function showWarningToast() {
-          toast({
-            title: "Can't not log in!",
-            message: "We are maintaining this feature.",
-            type: "warning",
-            duration: 5000
-          });
-        }
-        function checkStrongPass(string){
-            var isStrong = 0;
-            for(let i of string){
-                if(string.charAt(i) == string.charAt(i).toUpperCase()){
-                    isStrong++;
-                    break;
-                }
-            }
-            for(let i of string){
-                if(Number.isInteger(Number(string.charAt(i)))){
-                    isStrong++;
-                    break;
-                }
-            }
-            if(string.includes('@') 
-            || string.includes('$') 
-            || string.includes('#')
-            || string.includes('%')
-            || string.includes('!')
-            || string.includes('&')
-            || string.includes('-')
-            || string.includes('/')
-            || string.includes('(')
-            || string.includes(')')
-            || string.includes('_')){
-                isStrong++;
-            }
-            if(isStrong == 3){
-                return true;
-            }
-            return false;
-        }
-        function cleanData(){
-            setTimeout(() => { 
-                if (fname.value !="") {
-                    fname.value = "";
-                }
-                if (lname.value !="") {
-                    lname.value = "";
-                }
-                if (mailnew.value !="") {
-                    mailnew.value = "";
-                }
-                if (passnew.value !="") {
-                    passnew.value = "";
-                }
-                if (mailold.value !="") {
-                    mailold.value = "";
-                }
-                if (passold.value !="") {
-                    passold.value = "";
-                }
-            }, 1000);
-        }
-        btnSignin.onclick = () =>{
-            const mailUser = mailold.value.trim()
-            const pwUser = passold.value.trim()
-
-            if(!mailUser || !pwUser){
-                if(!mailUser){
-                    toast({
-                        title: "Can't not log in!",
-                        message: "Please fill in your mail.",
-                        type: "warning",
-                        duration: 5000
-                    });
-                    mailold.focus();
-                }
-                else{
-                    toast({
-                        title: "Can't not log in!",
-                        message: "Please fill in your password.",
-                        type: "warning",
-                        duration: 5000
-                    });
-                    passold.focus();
-                }
+        const returnHome = document.getElementById("home");
+        const users = JSON.parse(localStorage.getItem("users"))
+        const returnLogin = document.querySelector('.login');
+        const listShoeShow = document.querySelector('.content__bestSeller');
+        const userImg = document.querySelector(".header-right-user");
+        const profile = document.querySelector(".profile__subnav");
+        const blockScroll = document.getElementById("body");
+        const blackPage = document.querySelector(".blackPage");
+        const titleBrand =document.getElementById("brand");
+        const brand = document.querySelector(".brand__subnav");
+        var setName = document.getElementById("welcomename");
+        const curUserr = JSON.parse(localStorage.getItem('curUser'));
+        if(curUserr){
+            document.getElementById("welcomename").innerHTML = "Hi, " + curUserr.lastName;
+            returnLogin.style.display = "none";
+            localStorage.removeItem("curUser");
+        }else{
+            userImg.style.display = "none"; 
+        } 
+        titleBrand.onclick = () => {
+            if(!titleBrand.classList.contains("active")){
+                brand.classList.add("active")
+                titleBrand.classList.add("active")
+                blackPage.classList.add("active")
+                blockScroll.classList.add("active")
+                profile.classList.remove("active")
+                userImg.classList.remove("active")
+                blackPage.style.transformOrigin ="top"
             }else{
-                const user = users.find(user => user.mail === mailUser)
-                if(!user){
-                    toast({
-                        title: "your mail is not exist!",
-                        message: "please check again your mail",
-                        type: "error",
-                        duration: 3000
-                    });  
-                }
-                const pw = user.pass === pwUser
-                if (!pw) {
-                    toast({
-                        title: "Error!",
-                        message: "Password not match!",
-                        type: "error",
-                        duration: 3000
-                    });
-                    passold.focus();
-                }
-                else{
-                    localStorage.setItem("savename",user.lastName)
-                    window.location.href="./home.html"
-                }
+                brand.classList.remove("active")
+                titleBrand.classList.remove("active")
+                blackPage.classList.remove("active")
+                blockScroll.classList.remove("active")
             }
         }
-        btnSignup.onclick = () =>{
-            var firstNameUser = fname.value.trim();
-            var lastNameUser = lname.value.trim();
-            var newMailUser = mailnew.value.trim();
-            var newPassUser = passnew.value.trim();
-            if(!newMailUser || !newPassUser || !firstNameUser || !lastNameUser){
-                if(!firstNameUser){
-                    toast({
-                        title: "Can't not log in!",
-                        message: "Please fill in your first name!.",
-                        type: "warning",
-                        duration: 5000
-                    });
-                    fname.focus();
-                }else{
-                    if(!lastNameUser){
-                        toast({
-                            title: "Can't not log in!",
-                            message: "Please fill in your last name!",
-                            type: "warning",
-                            duration: 5000
-                        });
-                        lname.focus();
-                   }else{
-                       if(!newMailUser){
-                            toast({
-                                title: "Can't not log in!",
-                                message: "Please fill in your new mail!",
-                                type: "warning",
-                                duration: 5000
-                            });
-                            mailnew.focus();
-                        }else{
-                            toast({
-                                title: "Can't not log in!",
-                                message: "Please fill in your new password",
-                               type: "warning",
-                                duration: 5000
-                            });
-                            passnew.focus();
-                        }
-                    }
-                }
-            }
-            else{
-                var continuee = false;
-                var result = (newMailUser.includes('@gmail.com') || newMailUser.includes('edu.vn'))&&newMailUser.includes('@')
-                if(!result){
-                    toast({
-                        title: "This mail is error!",
-                        message: "the mail must have \'@gmail.com\'",
-                        type: "warning",
-                        duration: 3000
-                    });
-                    mailnew.focus();
-                }else{
-                    var test = users.find(test => test.mail === newMailUser);
-                    if(test){
-                        toast({
-                            title: "This email have been used!",
-                            message: "please choose another email",
-                            type: "warning",
-                            duration: 3000
-                        });
-                        mailnew.focus();
-                    }else{
-                        continuee = true;
-                    }
-
-                }
-            }
-            if(newPassUser && continuee){
-                if(newPassUser.length < 8){
-                    toast({
-                        title: "Warning",
-                        message: "Password length must be at least 8 characters",
-                        type: "warning",
-                        duration: 3000
-                    });
-                    passnew.focus();
-                }else{
-                    if(!checkStrongPass(newPassUser)){
-                        toast({
-                            title: "Warning",
-                            message: "Password must have 1 special character 1 number and 1 capital letter!",
-                            type: "warning",
-                            duration: 3000
-                        });
-                        passnew.focus();
-                    }else{
-                        const obj = {
-                                id: users.length + 1,
-                                firstName : firstNameUser,
-                                lastName : lastNameUser,
-                                mail : newMailUser,
-                                pass : newPassUser
-                        }
-                        users.push(obj)
-                        localStorage.setItem("users", JSON.stringify(users))
-                        formsignup.classList.add("active")
-                        formsignin.classList.add("active")
-                        cleanData();
-                    }
-                }
+        blackPage.onclick = () => {
+            if(blackPage.classList.contains("active")){
+                profile.classList.remove("active")
+                brand.classList.remove("active")
+                titleBrand.classList.remove("active")
+                blackPage.classList.remove("active")
+                blockScroll.classList.remove("active")
+                userImg.classList.remove("active")
             }
         }
-        const togglePasswordold = document.querySelector('#togglePasswordold');
-        const passwordold = document.querySelector('#passwordold');
-        togglePasswordold.addEventListener('click', function (e) {
-            // toggle the type attribute
-            const type = passwordold.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordold.setAttribute('type', type);
-            // toggle the eye slash icon
-            this.classList.toggle('fa-eye-slash');
-        });
+        userImg.onclick = () => {
+            if(!profile.classList.contains("active")){
+                userImg.classList.add("active")
+                profile.classList.add("active")
+                blackPage.classList.add("active")
+                blockScroll.classList.add("active")
+                brand.classList.remove("active")
+                titleBrand.classList.remove("active")
+                blackPage.style.transformOrigin ="top right"
+            }else{
+                profile.classList.remove("active")
+                blackPage.classList.remove("active")
+                blockScroll.classList.remove("active")
+                userImg.classList.remove("active")
+                
+            }
+        }
+        //logout
+        profile.onclick = function (e){
+            if(e.target.closest(".logout")){
+                window.location.href="./login.html";
+            }
+            //edit profile
+            if(e.target.closest(".editprofile")){
+                toggleModal();
+            }
+        }
 
-        const togglePasswordnew = document.querySelector('#togglePasswordnew');
-        const passwordnew = document.querySelector('#passwordnew');
-        togglePasswordnew.addEventListener('click', function (e) {
-            // toggle the type attribute
-            const type = passwordnew.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordnew.setAttribute('type', type);
-            // toggle the eye slash icon
-            this.classList.toggle('fa-eye-slash');
+        //edit profile
+        const toggleModal = () => {
+            document.querySelector('.modal').classList.toggle('hide');
+        }
+
+        document.querySelector('.fas.fa-times').addEventListener('click', () => toggleModal())
+        document.querySelector('.modal').addEventListener('click', e => e.target == e.currentTarget ? toggleModal() : e.preventDefault())
+        if(curUserr){
+            document.querySelector('#fname').value = curUserr.firstName;
+            document.querySelector('#lname').value = curUserr.lastName;
+        }
+        // save
+        document.querySelector('.modal__button-apply').onclick = () =>{
+            curUserr.firstName = document.querySelector('#fname').value.trim();
+            curUserr.lastName = document.querySelector('#lname').value.trim();
+            if(curUserr){
+                document.getElementById("welcomename").innerHTML = "Hi, " + curUserr.lastName;
+                toggleModal();
+                for(let i = 0 ; i < users.length;i++){
+                    if(curUserr.mail == users[i].mail){
+                        users[i].firstName = document.querySelector('#fname').value.trim();
+                        users[i].lastName = document.querySelector('#lname').value.trim();
+                    }
+                }
+                localStorage.setItem("users", JSON.stringify(users));
+            }
+        }
+
+
+        // swiper library
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 30,
+            effect: "fade",
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
         });
+        //sort shoe
         
+        var sortShoe = document.querySelectorAll('.subnav__item');
+        for (let i = 0; i < sortShoe.length; i++) {
+            sortShoe[i].onclick = function (e){
+                var nameBrand = e.target.id;
+                listShoeShow.innerHTML='';
+                showShoe(0,sortBrand(listShoe,nameBrand),document.querySelector('.content__bestSeller'));
+                window.location= "#scrollhere";
+                returnHome.style.borderBottom ="none";
+            }
+        }
+        returnLogin.onclick= () =>{
+            window.location.href="./login.html";
+        }
+
+        //returnhome
+        returnHome.onclick =() =>{
+            listShoeShow.innerHTML='';
+            showShoe(0,listShoe,document.querySelector('.content__bestSeller'));
+            returnHome.style.borderBottom =" 3px solid #333";
+            window.location= "#scrollhere";
+        }
 
         
-      </script>
+    </script>
 </body>
+
 </html>

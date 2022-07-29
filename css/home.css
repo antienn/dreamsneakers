@@ -9,6 +9,8 @@ html {
     user-select: none;
     font-family: sans-serif;
     background-color: #f0f2f5;
+    scroll-padding-top: 150px;
+    scroll-behavior: smooth;
 }
 #body.active{
     overflow: hidden;
@@ -22,7 +24,9 @@ html {
     right: 0;
     bottom: 0;
     z-index: 100;
-    display: none;
+    transform: scale(0);
+    transition: all .1s linear;
+    transform-origin: top;
 }
 .blackPage img{
     width: 100%;
@@ -33,7 +37,7 @@ html {
     cursor:zoom-out;
 }
 .blackPage.active{
-    display: block;
+    transform: scale(1);
 }
 
 .header{
@@ -44,7 +48,7 @@ html {
     height: 80px;
     background-image: url('../data/img/bgweb.jpg');
     background-position: center;
-    z-index: 999;
+    z-index: 998;
     font-size: 2.4rem;
     color: white;
 }
@@ -75,6 +79,7 @@ html {
 .option{
     cursor: pointer;
     margin: auto 20px;
+    padding: 5px 30px;
 }
 .option:hover{
     border-bottom: 3px solid #333;
@@ -82,7 +87,7 @@ html {
 
 .brand__subnav {
     position: absolute;
-    top: 70px;
+    top: 85px;
     width: 170px;
     padding: 10px;
     list-style: none;
@@ -122,6 +127,20 @@ html {
     cursor: pointer;
     border-radius: 5px;
 }
+
+.login{
+    padding: 10px 30px;
+    border: 2px solid #e1306c;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .2s linear;
+    text-transform: capitalize;
+}
+.login:hover{
+    background-color:rgba(51, 51, 51,.2);
+}
+
+
 .content {
     padding: 100px 20px 20px 20px;
 }
@@ -176,4 +195,3 @@ html {
     background-color: rgba(51, 51, 51,.6);
     border-radius: 10px;
 }
-
