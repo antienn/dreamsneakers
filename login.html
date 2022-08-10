@@ -24,7 +24,7 @@
                 <li class="shop_name"><h1><strong>Dream Sneakers</strong></h1></li>
                 <li class="slogan">Impossible is nothing. </li>
                 <li>
-                    <img src="./data/img/shoe.png">
+                    <img src="./data/img/logologin.png">
                 </li>
                 <li>
                     <ol class="list_social">
@@ -160,7 +160,9 @@
                 firstName :'Tran',
                 lastName :'Tien',
                 mail : '1',
-                pass : '1'
+                pass : '1',
+                bagshoe: [],
+                liked:[],
             }
         ]
         const users = JSON.parse(localStorage.getItem("users")) || usersArr
@@ -293,8 +295,10 @@
                     passold.focus();
                 }
                 else{
+                    const date = new Date();
+                    localStorage.setItem("lastlogin", JSON.stringify(date));
                     localStorage.setItem("curUser",JSON.stringify(user));
-                    window.location.href="./index.html"
+                    window.location.href="./index.html";
                 }
             }
         }
@@ -393,7 +397,9 @@
                                 firstName : firstNameUser,
                                 lastName : lastNameUser,
                                 mail : newMailUser,
-                                pass : newPassUser
+                                pass : newPassUser,
+                                bagshoe:[],
+                                liked:[]
                         }
                         users.push(obj)
                         localStorage.setItem("users", JSON.stringify(users))

@@ -1,0 +1,326 @@
+@media only screen and (max-width: 1200px){
+    .shoe{
+        width: 140px;
+        height: 200px;
+        margin: 10px 5px;
+    }
+    .shoe img{
+        height: 40%;
+        width: 100%;
+    }
+    .shoe_name{
+        font-size: 1.3rem;
+    }
+    .shoe_price p{
+        font-size: 1rem;
+        padding: 5px;
+    }
+    .shoe_price>.shoe_newprice{
+        font-size: 1.5rem;
+    }
+    .app_left{
+        width: 7%;
+    }
+    .app_right{
+        width: 90%;
+    }
+    .banner{
+        font-size: 2rem;
+    }
+    .banner-buy{
+        font-size: 1.2rem;
+        bottom: 30px;
+    }
+    .banner-name{
+        font-size: 1.5rem;
+    }
+    .select_color_nav{
+        margin: 0 30px;
+    }
+    .table_change{
+        right:15px;
+    }
+    .chartchange i{
+        right:30px;
+    }
+    .input_size{
+        width: 80%;
+        margin: 0 10%;
+    }
+    .name_change{
+        right:55px;
+    }
+    .size__subnav{
+        right: 15px; 
+    }
+    .list_item_user{
+        font-size: 1.2rem;
+        margin-top:50px;
+    }
+    .item_user_head{
+        background-color: rgba(199, 199, 199,0.3);
+        width: 20%;
+        border-radius: 10px;
+    }
+    .item_user_head i{
+        padding: 10px 15px;
+        font-size: 3.2rem;
+    }
+    .item_user_head_info{
+        padding: 10px 10px;
+        font-size: 2rem;
+    }
+    .item_user_head_name{
+        padding:10px;
+    }
+    .chart_culumn{
+        padding: 10px;
+        transform: translateY(-60px);
+    }
+}
+@media only screen and (max-width: 1000px){
+    .login{
+        font-size: 1.8rem;
+        padding: 10px 15px;
+    }
+    .banner{
+        margin: 15px;
+    }
+    .banner-buy p{
+        padding: 5px 7px;
+    }
+    .banner-name{
+        font-size: 1.2rem;
+    }
+    .select_color_nav{
+        margin: 0 10px;
+    }
+    .listitem i{
+        font-size: 1.5rem;
+    }
+    .listitem p{
+        font-size: .7rem;
+    }
+    .imgbanner{
+        height: 70%;
+        top:20px;
+        right: 0;
+    }
+}
+@media only screen and (max-width: 850px){
+    .app{
+        margin: 12vh 0px;
+    }
+    .app-right{
+        margin: 10px auto;
+        width: 100%;
+    }
+    .app_left{
+        transform: translateX(-1000px);
+        width: 4%;
+    }
+    .bgicon{
+        font-size: 1rem;
+        top:calc(50% - .5rem - 12px);
+        left:calc(50% - .5rem - 12px);
+    }
+    .chartchange{
+        font-size: 2rem;
+    }
+    .title_change{
+        margin: 40px 0px 20px 25px;
+    }
+    .name_change{
+        position:absolute;
+        top:7px;
+        right:50px;
+        font-size: 1.5rem;
+        z-index: 10;
+    }
+    .menuicon{
+        display: block;
+    }
+    .header .logo img{
+        display: none;
+    }
+    .login{
+        display: none;
+    }
+    .user{
+        display: none;
+    }
+    .search{
+        width: 50%;
+        position: relative;
+    }
+    .size__subnav{
+        top:35px;
+        right: 10px; 
+    }
+    .sort_nav{
+        font-size: 2rem;
+    }
+}
+@media only screen and (max-width: 750px){
+    .banner-buy{
+        width: 40%;
+    }
+    .table_change{
+        display: none;
+    }
+    .banner{
+        width: 70%;
+        margin: 15px auto;
+    }
+    .banner-intro{
+        font-size: 3rem;
+    }
+    .banner-buy{
+        left: 20px;
+        bottom: 10px;
+    }
+    .banner-name{
+        font-size: 1.7rem;
+    }
+    .newprice{
+        font-size: 1.5rem;
+    }
+    .oldprice{
+        font-size: 1.2rem;
+    }
+    .color{
+        font-size: 1.5rem;
+    }
+    .select_color_nav{
+        margin: 5px 10px; 
+    }
+    .select_color{
+        width: 20px;
+        height: 20px;
+    }
+    .header .logo img{
+        height: 30px;
+    }
+}
+@media only screen and (max-width: 600px){
+    .banner{
+        width: 90%;
+    }
+    .newprice{
+        font-size: 1.5rem;
+    }
+    .oldprice{
+        font-size: 1.2rem;
+        margin: 5px;
+    }
+    .color{
+        font-size: 1.5rem;
+    }
+    .sort_nav{
+        width: 150px;
+        font-size: 1.5rem;
+        padding: 5px;
+    }
+    .sort_nav i{
+        top:4px;
+    }
+    .sort__item{
+        padding: 10px;
+        font-size: 1.5rem;
+    }
+    .sort__subnav{
+        top: 50px;
+    }
+    .sort__subnav.active::before{
+        border-width: 7px;
+    }
+}
+@media only screen and (max-width: 500px){
+    .mybag{
+        font-size: 2rem;
+    }
+    .sort {
+        font-size: 2rem;
+    }
+    .banner{
+        width: 95%;
+    }
+    .user{
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+    .banner-intro{
+        font-size: 2rem;
+    }
+    .banner-buy{
+        width: 35%;
+        left:5px;
+        height: 23vh;
+    }
+    .banner-name{
+        font-size: 1.5rem;
+    }
+    .newprice{
+        padding: 0px;
+        font-size: 1.2rem;
+    }
+    .oldprice{
+        padding: 0px;
+        font-size: 1.2rem;
+        margin: 0px;
+    }
+    .color{
+        font-size: 1.5rem;
+    }
+    .imgbanner{
+        top:30px;
+        right: 30px;
+    }
+    .search i{
+        top: 13px;
+        left:14px;
+        font-size: 1.5rem;
+    }
+    .search input{
+        height: 40px;
+        padding: 10px 0px 10px 40px;
+
+    }
+}
+@media only screen and (max-width: 450px){
+    .imgbanner{
+        height: 50%;
+        top:60px;
+        right: 10px;
+    }
+    .banner-buy{
+        width: 40%;
+    }
+    .list_item_user{
+        font-size: 1rem;
+        margin-top:50px;
+    }
+    .item_user_head{
+        background-color: rgba(199, 199, 199,0.3);
+        width: 20%;
+        border-radius: 10px;
+    }
+    .item_user_head i{
+        padding: 10px 10px;
+        font-size: 2.4rem;
+    }
+    .item_user_head_info{
+        padding: 10px 5px;
+        font-size: 1.4rem;
+    }
+    .item_user_head_name{
+        padding:10px;
+    }
+    .chart_culumn{
+        padding: 5px;
+        transform: translateY(-100px);
+    }
+    .modal__inner{
+        width: 350px;
+    }
+}

@@ -1,105 +1,62 @@
-.shoe{
-    width: 280px;
-    height: 550px;
-    background-color: white;
-    margin: 0 20px 20px;
-    border-radius: 10px;
-    overflow: hidden;
-}
-.shoe_img{
-    width: 100%;
-    height: 50%;
-}
-.shoe_img img {
-    width: 100%;
+
+.content_shoe_product{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
-    cursor: pointer;
+    width: 100%;
+    overflow-y: scroll;
 }
-.shoename{
-    font-size: 2.8rem;
-    padding: 5px 20px;
-    height: 100px;
+
+.content_shoe{
+    height: 250px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    flex-wrap: wrap;
+    margin: 10px 15px;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
-.shoebrand{
+.shoe{
+    position: relative;
+    margin: 10px 20px;
+    width: 150px;
+    height: 220px;
+    border-radius: 10px;
+}
+.shoe_sale{
+    position: absolute;
+    top:0;
+    left:0;
+    padding: 5px;
     font-size: 2rem;
-    padding: 5px 30px;
+    background-color: #e56301;
+    color: white;
+    border-radius: 10px 0px;
 }
-.priceshoe p {
-    display:inline;
-    font-size: 2rem;
+.shoe img{
+    height: 50%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    cursor: pointer;
 }
-.current_price{
-    padding: 10px 30px;
-    color:#d8a52b;
+.shoe_name{
+    height: 30px;
+    font-size: 1.5rem;
+    margin: 5px;
+    font-weight: 700;
 }
-.old_price{
-    color:#bfbfbf;
+.shoe_price p{
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 5px;
+}
+.shoe_price>.shoe_newprice{
+    color:#d79b9d;
+    font-size: 1.8rem;
+}
+.shoe_oldprice{
     text-decoration: line-through;
 }
-.btn_buy{
-    text-align: center;
-    font-size: 2.4rem;
-    background-color: #ffc230;
-    padding: 5px;
-    width: 70%;
-    margin: 10px auto;
-    border-radius: 10px;
-    color: #ffffff;
-    transition: all .4s linear;
-}
-.btn_buy:hover{
-    background-color: #d09f2a;
-    cursor:pointer;
-}
-.btn_buy:hover i{
-    animation: animationbuy 2s infinite;
-}
-
-
-.big_view{
-    font-size: 2.4rem;
-    text-align: center;
-    padding: 5px;
-    background-color: #ffc230;
-    width: 70%;
-    margin: 10px auto;
-    border-radius: 10px;
-    color: #ffffff;
-    transition: all .4s linear;
-    text-transform:uppercase;
-    font-weight: 500;
-}
-.big_view:hover{
-    background-color: #d09f2a;
-    cursor: zoom-in;
-}
-
-
-@keyframes animationbuy {
-    0%{transform: rotate(0deg);}
-    25%{transform: rotate(20deg);}
-    50%{transform: rotate(0deg);}
-    75%{transform: rotate(-20deg);}
-    100%{transform: rotate(0deg);}
-}
-.content__bestSeller{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 20px 0;
-}
-
-.btn_buy.soldOut{
-    text-align: center;
-    font-size: 2.4rem;
-    background-color: #bfbfbf;
-    animation: none;
-    cursor:not-allowed;	
-}
-

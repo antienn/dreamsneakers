@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://quythanh.tk/assets/css/fontawesomepro/all.css">
+    <link rel="stylesheet" href="./css/info.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header">
+        <ul class="header_list">
+            <li class="header_list_item return">
+                <i class="fa-solid fa-turn-down-left"></i>
+            </li>
+            <li class="header_list_item">
+                <i class="fa-solid fa-heart heart "></i>
+            </li>
+            <li class="header_list_item">
+                <i class="fa-solid fa-basket-shopping"></i>
+            </li>
+        </ul>
+    </div>
+    <div class="app">
+    </div>
+    <script src="./js/showinfo.js"></script>
+    <script src="./data/infor/data.js"></script>
+    <script>
+        const lastLogin = new Date(JSON.parse(localStorage.getItem('lastlogin')));
+        const timeNow = new Date();
+        const curUserr = JSON.parse(localStorage.getItem('curUser'));
+        const users = JSON.parse(localStorage.getItem("users"));
+
+
+        document.querySelector(".return").onclick = () =>{
+            window.location.href="./index.html";
+        }
+        var tmpID = localStorage.getItem("tmpID");
+        showInfo(tmpID,"","",document.querySelector(".app"));
+
+        const toggleLike = () => {
+            if(lastLogin.getDay() == timeNow.getDay() && lastLogin.getMonth() == timeNow.getMonth() && lastLogin.getFullYear() == timeNow.getFullYear()){
+                document.querySelector('.heart').classList.toggle('liked');
+                document.querySelector('.method_like').classList.toggle('liked');
+                for(let i = 0 ; i < users.length;i++){
+                    if(curUserr.mail == users[i].mail){
+                        if(document.querySelector(".method_like").classList.contains("liked")){
+                            users[i].liked.push(tmpID);
+                            curUserr.liked.push(tmpID);
+                            localStorage.setItem("users", JSON.stringify(users))
+                            localStorage.setItem("curUser",JSON.stringify(curUserr));
+                        }else{
+                            users[i].liked.splice(users[i].liked.indexOf(tmpID),1);
+                            curUserr.liked.splice(curUserr.liked.indexOf(tmpID),1);
+                            localStorage.setItem("users", JSON.stringify(users));
+                            localStorage.setItem("curUser",JSON.stringify(curUserr));
+                        }
+                    }
+                }
+            }else{
+                window.location.href="./login.html";
+            }
+        }
+        document.querySelector(".heart").onclick = () =>{
+            toggleLike();
+        }
+        document.querySelector(".method_like").onclick = () =>{
+            toggleLike();
+        }
+        for(let i = 0;i< curUserr.liked.length;i++){
+            if(curUserr.liked[i]==tmpID){
+                document.querySelector('.heart').classList.add('liked');
+                document.querySelector('.method_like').classList.add('liked');
+                break;
+            }
+        }
+
+    </script>
+</body>
+</html>

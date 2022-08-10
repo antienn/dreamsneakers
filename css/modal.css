@@ -11,6 +11,7 @@
     font-size: 1.7rem;
     background-color: rgba(0, 0, 0, .6);
     z-index: 999;
+    color: #fff;
 }
 
 .modal__inner {
@@ -18,8 +19,7 @@
     top: 25%;
     margin: auto;
     width: 450px;
-    background-image: url("../data/img/bgweb.jpg");
-    background-position:  left top;
+    background-color: #4d8eb5;
     border-radius: 5px;
     overflow: hidden;
     animation: showModal .2s linear;
@@ -35,7 +35,6 @@
 }
 
 .modal__title {
-    color: #fff;
     font-size: 2rem;
     font-weight: 600;
 }
@@ -71,7 +70,7 @@
     border: none;
     outline: none;
     border-radius: 5px;
-    background-color: green;
+    background-color: #eb5a4a;
     color: #fff;
     padding: 10px 20px;
     cursor: pointer;

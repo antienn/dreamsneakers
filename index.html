@@ -4,40 +4,79 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dream Sneakers</title>
+    <title>Home</title>
     <link rel="SHORTCUT ICON" href= "./data/img/logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="https://quythanh.tk/assets/css/fontawesomepro/all.css">
-    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/shoe.css">
-    <link rel="stylesheet" href="./css/intro.css">
     <link rel="stylesheet" href="./css/modal.css">
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
-    />
+    <link rel="stylesheet" href="./css/responsivehome.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
     <!-- META FOR FACEBOOK -->
     <meta property="og:image" itemprop="thumbnailUrl" content="https://i.imgur.com/wSU9Arq.png"/>
     <meta property="og:image:width" content="1000"/>
     <meta property="og:image:height" content="500"/>
     <meta content="hệ thống bán giày lớn nhất thế giới" itemprop="headline" property="og:title"/>
-
 </head>
-<body id="body">
+<body>
+    <div class="menu">
+        <div class="menu_user">
+            <i class="fas fa-times close"></i>
+            <i class="fa-solid fa-user-large iconuser"></i>
+            <div class="menu_info">
+                <div class="menu_info_email">guest123@gmail.com</div>
+                <div class="menu_info_name">Guest</div>
+            </div>
+        </div>
+        <div class="menu_select">
+            <ul class="menu_list_select">
+                <li class="menu_list_item menu_home">
+                    <i class="fa-solid fa-house"></i>
+                    <p>Home</p>
+                </li>
+                <li class="menu_list_item menu_product">
+                    <i class="fa-solid fa-gem"></i>
+                    <p>Product</p>
+                </li>
+                <li class="menu_list_item menu_users">
+                    <i class="fa-solid fa-users"></i>
+                    <p>User</p>
+                </li>
+                <li class="menu_list_item">
+                    <i class="fa-solid fa-badge-percent"></i>
+                    <p>Coupon</p>
+                </li>
+                <li class="menu_list_item menu_login">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <p>Login</p>
+                </li>
+                <li class="menu_list_item menu_editprofile">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <p>Edit Profile</p>
+                </li>
+                <li class="menu_list_item menu_logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <p>Log out</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="toast"></div>
     <div class="modal hide">
         <div class="modal__inner">
             <div class="modal__header">
                 <div class="modal__title">Edit profile</div>
-                <i class="fas fa-times"></i>
+                <i class="fas fa-times closemodal"></i>
             </div>
             <div class="modal__body">
                 <div>
                     <label for="fname">First name:</label>
-                    <input type="text" id="fname" name="fname" value="">
+                    <input autocomplete="off" autocapitalize="on" type="text" id="fname" name="fname" value="">
                 </div>
                 <div>
                     <label for="lname">Last name:</label>
-                    <input type="text" id="lname" name="lname" value="">
+                    <input autocomplete="off" autocapitalize="on" type="text" id="lname" name="lname" value="">
                 </div>
             </div>
             <div class="modal__footer">
@@ -45,159 +84,176 @@
             </div>
         </div>
     </div>
-
     <div class="blackPage">
     </div>
+    <div class="header">
+        <i class="fa-regular fa-bars menuicon"></i>
+        <div class="logo">
+            <img src="./data/img/shoe.png">
+        </div>
+        <div class="search">
+            <input autocomplete="off" type="text" id="firstname" placeholder="Search or type a command " class="search_inp">
+            <i class="fa-thin fa-magnifying-glass"></i>
+        </div>
+        <div class="sort">
+            <i class="fa-regular fa-filter"></i>
+            <ul class="listsort_subnav">
+                <li class="list_item_sort">Adidas</li>
+                <li class="list_item_sort">Nike</li>
+                <li class="list_item_sort">Puma</li>
+                <li class="list_item_sort">Burberry</li>
+                <li class="list_item_sort">New Balance</li>
+                <li class="list_item_sort">Fila</li>
+                <li class="list_item_sort">Balenciaga</li>
+                <li class="list_item_sort">Under Armour</li>
+            </ul>
+        </div>
+        <div class="mybag">
+            <i class="fa-solid fa-basket-shopping"></i>
+        </div>
+        <div class="user">
+            <i class="fa-solid fa-user-large"></i>
+            <ul class="profile__subnav ">
+                <li class="profile__item editprofile">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    Edit profile
+                </li>
+                <li class="profile__item logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Log out
+                </li>
+            </ul>
+        </div>
+        <div class="login">
+            Log in to buy 
+        </div>
+    </div>
     <div class="app">
-        <div class="header">
-            <ol>
-                <li>
-                    <img src="./data/img/shoe.png" height="50px" >
-                </li>
-                <li>
-                    <ol>
-                        <div class="option" id="home">Home</div>
-                        <div class="option" id="brand">
-                            Brand
-                            <ul class="brand__subnav">
-                                <li class="subnav__item" id="Nike">Nike</li>
-                                <li class="subnav__item" id="Adidas">Adidas</li>
-                                <li class="subnav__item" id="Fila">Fila</li>
-                                <li class="subnav__item" id="Puma">Puma</li>
-                                <li class="subnav__item" id="New Balance">New Balance</li>
-                                <li class="subnav__item" id="Under Armour">Under Armour</li>
-                                <li class="subnav__item" id="Balenciaga">Balenciaga</li>
-                                <li class="subnav__item" id="Burberry">Burberry</li>
-                            </ul>
-                        </div>
-                        <div class="option" id="welcomename"></div>
-                    </ol>
-                </li>
-                <li>
-
-                </li>
-                <li>
-                    <div class="header-right-user">
-                        <i class="fa-solid fa-user-large"></i>
-                        <ul class="profile__subnav">
-                            <li class="profile__item editprofile">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                                Edit profile
-                            </li>
-                            <li class="profile__item logout">
-                                <i class="fa-solid fa-right-from-bracket"></i>
-                                Log out
-                            </li>
-                        </ul>
+        <div class="app_left">
+            <ul class="list-header">
+                <li class="listitem able item_home">
+                    <div class="background">  
                     </div>
-                    <div class="login">login</div>
+                    <i class="fa-solid fa-house"></i>
+                    <p>Home</p>
                 </li>
-            </ol>
+                <li class="listitem item_product">
+                    <div class="background">  
+                    </div>
+                    <i class="fa-solid fa-gem"></i>
+                    <p>Product</p>
+                </li>
+                <li class="listitem item_users">
+                    <div class="background">  
+                    </div>
+                    <i class="fa-solid fa-users"></i>
+                    <p>User</p>
+                </li>
+                <li class="listitem">
+                    <div class="background">  
+                    </div>
+                    <i class="fa-solid fa-badge-percent"></i>
+                    <p>Coupon</p>
+                </li>
+
+            </ul>
         </div>
+        <div class="app_right">
+        </div>
+          
     </div>
 
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="./data/img/banner1final.jpg" />
-          </div>
-          <div class="swiper-slide">
-            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-          </div>
-        </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
-    </div>
-    
-    <div class="content">
-        <p>best seller</p>
-        <div class="content__bestSeller" id="scrollhere"></div> 
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="./data/infor/data.js"></script> 
     <script src="./js/showshoe.js"></script>  
-    <script src="./js/toast.js"></script>  
+    <script src="./js/showhome.js"></script>
+    <script src="./js/showproduct.js"></script>
+    <script src="./js/showuser.js"></script>
+    <script src="./js/toast.js"></script>
+
     <script>
-        const returnHome = document.getElementById("home");
-        const users = JSON.parse(localStorage.getItem("users"))
-        const returnLogin = document.querySelector('.login');
-        const listShoeShow = document.querySelector('.content__bestSeller');
-        const userImg = document.querySelector(".header-right-user");
-        const profile = document.querySelector(".profile__subnav");
-        const blockScroll = document.getElementById("body");
+        //first showhome
+        showHome(document.querySelector(".app_right"));
+
+
+        const blockALLActive = (root) =>{
+           var allActive= document.querySelectorAll('.active');
+           for(let i = 0 ;i < allActive.length;i++){
+                if(allActive[i]!=root){
+                    allActive[i].classList.remove('active');
+                }
+           }
+        }
+        const changeAble = (root) =>{
+            document.querySelector(".able").classList.remove("able")
+            root.classList.add("able"); 
+        }
+        const returnLogin = document.querySelector(".login");
+        const users = JSON.parse(localStorage.getItem("users"));
+        const userSelect = document.querySelector(".user");
+        const userItem = document.querySelector(".profile__subnav");
         const blackPage = document.querySelector(".blackPage");
-        const titleBrand =document.getElementById("brand");
-        const brand = document.querySelector(".brand__subnav");
-        var setName = document.getElementById("welcomename");
+        const lastLogin = new Date(JSON.parse(localStorage.getItem('lastlogin')));
+        const timeNow = new Date();
         const curUserr = JSON.parse(localStorage.getItem('curUser'));
-        if(curUserr){
-            document.getElementById("welcomename").innerHTML = "Hi, " + curUserr.lastName;
+        if(lastLogin.getDay() == timeNow.getDay() && lastLogin.getMonth() == timeNow.getMonth() && lastLogin.getFullYear() == timeNow.getFullYear()){
             returnLogin.style.display = "none";
-            localStorage.removeItem("curUser");
+            document.querySelector(".menu_login").style.display="none";
+            document.querySelector(".menu_info_email").innerHTML = curUserr.mail;
+            document.querySelector(".menu_info_name").innerHTML = curUserr.lastName;
         }else{
-            userImg.style.display = "none"; 
-        } 
-        titleBrand.onclick = () => {
-            if(!titleBrand.classList.contains("active")){
-                brand.classList.add("active")
-                titleBrand.classList.add("active")
-                blackPage.classList.add("active")
-                blockScroll.classList.add("active")
-                profile.classList.remove("active")
-                userImg.classList.remove("active")
-                blackPage.style.transformOrigin ="top"
+            localStorage.removeItem("curUser")
+            userSelect.style.display = "none"; 
+            document.querySelector(".menu_editprofile").style.display="none";
+            document.querySelector(".menu_logout").style.display="none";
+        }
+
+
+        returnLogin.onclick= () =>{
+            window.location.href="./login.html";
+            localStorage.removeItem("lastlogin");
+        }
+        document.querySelector(".menu_login").onclick= () =>{
+            window.location.href="./login.html";
+            localStorage.removeItem("lastlogin");
+        }
+        document.querySelector(".menu_logout").onclick= () =>{
+            window.location.href="./login.html";
+        }
+        document.querySelector(".menu_editprofile").onclick= () =>{
+            toggleModal();
+            blockALLActive();
+        }
+
+        //userSelector
+        userSelect.onclick = () => {
+            if(!userItem.classList.contains("active")){
+                blockALLActive(document.querySelector(".profile__subnav"));
+                userItem.classList.add("active");
+                blackPage.classList.add("active");
             }else{
-                brand.classList.remove("active")
-                titleBrand.classList.remove("active")
-                blackPage.classList.remove("active")
-                blockScroll.classList.remove("active")
+                userItem.classList.remove("active");
+                blackPage.classList.remove("active");
             }
         }
-        blackPage.onclick = () => {
-            if(blackPage.classList.contains("active")){
-                profile.classList.remove("active")
-                brand.classList.remove("active")
-                titleBrand.classList.remove("active")
-                blackPage.classList.remove("active")
-                blockScroll.classList.remove("active")
-                userImg.classList.remove("active")
-            }
+        blackPage.onclick =() =>{
+            blockALLActive();
         }
-        userImg.onclick = () => {
-            if(!profile.classList.contains("active")){
-                userImg.classList.add("active")
-                profile.classList.add("active")
-                blackPage.classList.add("active")
-                blockScroll.classList.add("active")
-                brand.classList.remove("active")
-                titleBrand.classList.remove("active")
-                blackPage.style.transformOrigin ="top right"
-            }else{
-                profile.classList.remove("active")
-                blackPage.classList.remove("active")
-                blockScroll.classList.remove("active")
-                userImg.classList.remove("active")
-                
-            }
-        }
-        //logout
-        profile.onclick = function (e){
+        userItem.onclick = function (e){
             if(e.target.closest(".logout")){
                 window.location.href="./login.html";
+                localStorage.removeItem("lastlogin");
             }
             //edit profile
             if(e.target.closest(".editprofile")){
                 toggleModal();
             }
         }
-
-        //edit profile
+        //editprofile
         const toggleModal = () => {
             document.querySelector('.modal').classList.toggle('hide');
         }
 
-        document.querySelector('.fas.fa-times').addEventListener('click', () => toggleModal())
+        document.querySelector('.closemodal').addEventListener('click', () => toggleModal())
         document.querySelector('.modal').addEventListener('click', e => e.target == e.currentTarget ? toggleModal() : e.preventDefault())
         if(curUserr){
             document.querySelector('#fname').value = curUserr.firstName;
@@ -205,61 +261,88 @@
         }
         // save
         document.querySelector('.modal__button-apply').onclick = () =>{
-            curUserr.firstName = document.querySelector('#fname').value.trim();
-            curUserr.lastName = document.querySelector('#lname').value.trim();
-            if(curUserr){
-                document.getElementById("welcomename").innerHTML = "Hi, " + curUserr.lastName;
-                toggleModal();
-                for(let i = 0 ; i < users.length;i++){
-                    if(curUserr.mail == users[i].mail){
-                        users[i].firstName = document.querySelector('#fname').value.trim();
-                        users[i].lastName = document.querySelector('#lname').value.trim();
+            if(document.querySelector('#fname').value && document.querySelector('#lname').value){
+                curUserr.firstName = document.querySelector('#fname').value.trim();
+                curUserr.lastName = document.querySelector('#lname').value.trim();
+                if(curUserr){
+                    toggleModal();
+                    for(let i = 0 ; i < users.length;i++){
+                        if(curUserr.mail == users[i].mail){
+                            users[i].firstName = document.querySelector('#fname').value.trim();
+                            users[i].lastName = document.querySelector('#lname').value.trim();
+                            document.querySelector(".menu_info_name").innerHTML = document.querySelector('#lname').value.trim();
+                        }
                     }
+                    localStorage.setItem("users", JSON.stringify(users));
                 }
-                localStorage.setItem("users", JSON.stringify(users));
             }
         }
 
-
-        // swiper library
-        var swiper = new Swiper(".mySwiper", {
-            spaceBetween: 30,
-            effect: "fade",
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-        });
-        //sort shoe
-        
-        var sortShoe = document.querySelectorAll('.subnav__item');
-        for (let i = 0; i < sortShoe.length; i++) {
-            sortShoe[i].onclick = function (e){
-                var nameBrand = e.target.id;
-                listShoeShow.innerHTML='';
-                showShoe(0,sortBrand(listShoe,nameBrand),document.querySelector('.content__bestSeller'));
-                window.location= "#scrollhere";
-                returnHome.style.borderBottom ="none";
+        const itemLeft = document.querySelectorAll(".listitem");
+        itemLeft.forEach(c => c.addEventListener('click', () => {
+            itemLeft.forEach(element => element.classList.remove('able'));
+            c.classList.add("able");
+        }))
+        //sortShowtoPageProduct
+        document.querySelector('.sort').onclick = () =>{
+            if(!document.querySelector('.listsort_subnav').classList.contains('active')){
+                blockALLActive();
+                blackPage.classList.toggle('active');
+                document.querySelector('.listsort_subnav').classList.add('active');
+            }else{
+                document.querySelector('.listsort_subnav').classList.remove('active');
+                blockALLActive();
             }
         }
-        returnLogin.onclick= () =>{
-            window.location.href="./login.html";
-        }
 
-        //returnhome
-        returnHome.onclick =() =>{
-            listShoeShow.innerHTML='';
-            showShoe(0,listShoe,document.querySelector('.content__bestSeller'));
-            returnHome.style.borderBottom =" 3px solid #333";
-            window.location= "#scrollhere";
+        var sortShoePage = document.querySelectorAll('.list_item_sort');
+        for (let i = 0; i < sortShoePage.length; i++) {
+            sortShoePage[i].onclick = function (e){
+                showProduct(document.querySelector(".app_right"),e.target.innerHTML);
+                changeAble(document.querySelector(".item_product"));
+            }
         }
-
         
+
+
+        //togglemenu 
+        document.querySelector('.menuicon').onclick =()=>{
+            blockALLActive();
+            if(!document.querySelector('.menu').classList.contains('active')){
+                blackPage.classList.add("active");
+                document.querySelector('.menu').classList.add('active');
+            }
+        }
+        document.querySelector('.close').onclick =()=>{
+            blackPage.classList.remove("active");
+            document.querySelector('.menu').classList.remove('active');
+        }
+
+        //change tab
+        document.querySelector(".item_product").onclick = () =>{
+            showProduct(document.querySelector(".app_right"));
+        }
+        document.querySelector(".item_home").onclick = () =>{
+            showHome(document.querySelector(".app_right"));
+        }
+        document.querySelector(".item_users").onclick = () =>{
+            showUser(document.querySelector(".app_right"));
+        }
+        document.querySelector(".menu_home").onclick = () =>{
+            showHome(document.querySelector(".app_right"));
+            blockALLActive();
+            changeAble(document.querySelector(".item_home"));
+        }
+        document.querySelector(".menu_product").onclick = () =>{
+            showProduct(document.querySelector(".app_right"));
+            blockALLActive();
+            changeAble(document.querySelector(".item_product"));
+        }
+        document.querySelector(".menu_users").onclick = () =>{
+            showUser(document.querySelector(".app_right"));
+            blockALLActive();
+            changeAble(document.querySelector(".item_users"));
+        }
     </script>
 </body>
-
 </html>

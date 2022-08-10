@@ -1,0 +1,163 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto",sans-serif;
+}
+html {
+    font-size: 62.5%;
+    user-select: none;
+    font-family: sans-serif;
+    scroll-padding-top: 15vh;
+    scroll-behavior: smooth;
+    overflow: hidden;
+}
+
+.header{
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index: 999;
+}
+.header_list{
+    font-size: 3rem;
+    list-style: none;
+    display: flex;
+    background-color: #f5f5f5;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+}
+.header_list_item{
+    padding: 10px 30px;
+    cursor: pointer;
+}
+.app{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10vh;
+    width: 100%;
+    height: 90vh;
+}
+.app_left{
+    width: 50%;
+}
+.app_left img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.app_right{
+    width: 50%;
+    padding: 1% 5%;
+}
+.shoe_name{
+    margin: 5px;
+    font-size: 3.5rem;
+}
+.shoe_brand{
+    margin: 10px;
+    font-size: 3rem;
+}
+.shoe_price p{
+    display: inline-block;
+    font-size: 1.8rem;
+    margin: 10px;
+}
+.shoe_price>.shoe_newprice{
+    color:#d79b9d;
+    font-size: 3rem;
+}
+.shoe_oldprice{
+    text-decoration: line-through;
+}
+.select_size{
+    display: flex;
+    flex-direction: column;
+    font-size: 2.5rem;
+}
+.select_size_name{
+    margin: 10px;
+}
+.list_size{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.list_item_size{
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 50px;
+    margin: 5px 10px;
+    border-radius: 5px;
+    border: 2px solid #e5e5e5;
+    transition: all .4s linear;
+}
+.list_item_size:hover{
+    border: 2px solid black;
+}
+.method{
+    display: flex;
+    flex-direction: column;
+    font-size: 2.5rem;
+    margin: 10px auto;
+    align-items: center;
+    gap:10px;
+}
+.method_add:hover,
+.method_like:hover{
+    transition: all .1s linear;
+    transform: scale(.9);
+}
+.method_add{
+    width: 70%;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+.method_like{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #e5e5e5;
+    width: 70%;
+    padding: 10px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all .1s linear;
+}
+.heart:hover{
+    transition: all .1s linear;
+    color: #ff623d;
+}
+.heart.liked{
+    color: #ff623d;
+}
+.return{
+    transition: all .4s linear;
+    border-radius: 10px;
+    border: 2px solid #f5f5f5;
+}
+.return:hover{
+    border: 2px solid black;
+}
+.method_like.liked{
+    background-color: #ff623d;
+}
+.method_like.liked:hover{
+    transform: scale(1);
+}
+.method_like:hover{
+    border: 2px solid #ff623d;
+}
