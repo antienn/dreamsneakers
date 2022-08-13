@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/shoe.css">
     <link rel="stylesheet" href="./css/modal.css">
+    <link rel="stylesheet" href="./css/mybag.css">
     <link rel="stylesheet" href="./css/responsivehome.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
@@ -110,6 +111,8 @@
         </div>
         <div class="mybag">
             <i class="fa-solid fa-basket-shopping"></i>
+            <ul class="listbag">
+            </ul>
         </div>
         <div class="user">
             <i class="fa-solid fa-user-large"></i>
@@ -168,13 +171,10 @@
     <script src="./js/showhome.js"></script>
     <script src="./js/showproduct.js"></script>
     <script src="./js/showuser.js"></script>
+    <script src="./js/showbag.js"></script>
     <script src="./js/toast.js"></script>
 
     <script>
-        //first showhome
-        showHome(document.querySelector(".app_right"));
-
-
         const blockALLActive = (root) =>{
            var allActive= document.querySelectorAll('.active');
            for(let i = 0 ;i < allActive.length;i++){
@@ -206,6 +206,10 @@
             document.querySelector(".menu_editprofile").style.display="none";
             document.querySelector(".menu_logout").style.display="none";
         }
+
+        //first
+        showHome(document.querySelector(".app_right"));
+        showBag(listShoe,curUserr.bagshoe,document.querySelector(".listbag"));
 
 
         returnLogin.onclick= () =>{
@@ -302,6 +306,16 @@
                 changeAble(document.querySelector(".item_product"));
             }
         }
+
+        //togglebag
+        document.querySelector('.mybag').onclick = () =>{
+            if(!document.querySelector('.listbag').classList.contains('active')){
+                blockALLActive();
+                blackPage.classList.toggle("active");
+                document.querySelector('.listbag').classList.toggle('active');
+            }
+        }
+
         
 
 
@@ -317,6 +331,7 @@
             blackPage.classList.remove("active");
             document.querySelector('.menu').classList.remove('active');
         }
+        
 
         //change tab
         document.querySelector(".item_product").onclick = () =>{

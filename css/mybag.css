@@ -1,0 +1,73 @@
+.mybag{
+    position: relative;
+    cursor: pointer;
+}
+
+.listbag{
+    list-style: none;
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    top:50px;
+    right:-30px;
+    transform: scale(0);
+    opacity: 0;
+    border-radius: 10px;
+    transition: all .4s linear;
+    transform-origin: top right;
+    cursor: default;
+}
+.listbag.active{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    align-items: center;
+    background-color: white;
+    transform: scale(1);
+    opacity: 1;
+    overflow-y: scroll;
+}
+.item_bag{
+    display: flex;
+    margin: 10px 5px;
+    height: 20%;
+    width: 90%;
+}
+.img_item{
+    width: 30%;
+}
+.item_bag img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.title_item{
+    width: 60%;
+    height: 100%;
+    font-size: 1.8rem;
+    color:black;
+}
+.bin_item{
+    font-size: 2.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.name_item{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    margin: 0px 10px;
+}
+.size_item,
+.price_item{
+    display: inline;
+    font-size: 1.2rem;
+    margin: auto 10px;
+}
+.price_item{
+    font-size: 1.5rem;
+    color: #e56301;
+}

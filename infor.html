@@ -9,6 +9,7 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="toast"></div>  
     <div class="header">
         <ul class="header_list">
             <li class="header_list_item return">
@@ -26,18 +27,18 @@
     </div>
     <script src="./js/showinfo.js"></script>
     <script src="./data/infor/data.js"></script>
+    <script src="./js/toast.js"></script>
     <script>
         const lastLogin = new Date(JSON.parse(localStorage.getItem('lastlogin')));
         const timeNow = new Date();
         const curUserr = JSON.parse(localStorage.getItem('curUser'));
         const users = JSON.parse(localStorage.getItem("users"));
 
-
         document.querySelector(".return").onclick = () =>{
             window.location.href="./index.html";
         }
-        var tmpID = localStorage.getItem("tmpID");
-        showInfo(tmpID,"","",document.querySelector(".app"));
+        const tmpID = localStorage.getItem("tmpID");
+        showInfo(tmpID,"",document.querySelector(".app"));
 
         const toggleLike = () => {
             if(lastLogin.getDay() == timeNow.getDay() && lastLogin.getMonth() == timeNow.getMonth() && lastLogin.getFullYear() == timeNow.getFullYear()){
@@ -74,6 +75,63 @@
                 document.querySelector('.method_like').classList.add('liked');
                 break;
             }
+        }
+        const selectSize = document.querySelectorAll(".list_item_size")
+        selectSize.forEach(c => c.addEventListener('click', () => {
+            selectSize.forEach(element => element.classList.remove('able'));
+            c.classList.add("able");
+        }))
+        function getSize(selectSize){
+            for(let i = 0;i<selectSize.length;i++){
+                if(selectSize[i].classList.contains("able")){
+                    return selectSize[i].innerHTML;
+                }
+            }
+        }
+
+
+        const addshoe = () =>{
+            if(lastLogin.getDay() == timeNow.getDay() && lastLogin.getMonth() == timeNow.getMonth() && lastLogin.getFullYear() == timeNow.getFullYear()){
+                const tmpSize = getSize(selectSize);
+                if(!tmpSize){
+                    toast({
+                        title: "Error",
+                        message: "please select your size",
+                        type: "error",
+                        duration: 3000
+                    });
+                }else{
+                    for(let i = 0 ; i < users.length;i++){
+                        if(curUserr.mail == users[i].mail){
+                            const obje = {
+                                id: tmpID,
+                                size: tmpSize
+                            }
+                            users[i].bagshoe.push(obje);
+                            curUserr.bagshoe.push(obje);
+                            localStorage.setItem("users", JSON.stringify(users))
+                            localStorage.setItem("curUser",JSON.stringify(curUserr));
+                            toast({
+                                title: "Add successful",
+                                message: "your shoe have been added the bag",
+                                type: "success",
+                                duration: 3000
+                            });
+                        }
+                    }
+                }
+            }else{
+                toast({
+                    title: "Please login first",
+                    message: "you will return login page in 5 second",
+                    type: "warning",
+                    duration: 3000
+                });
+                setTimeout(window.location.href="./login.html", 5000);
+            }
+        }
+        document.querySelector(".method_add").onclick = () =>{
+            addshoe();
         }
 
     </script>

@@ -1,6 +1,6 @@
-const showInfo = (id,isliked,isadded,root) =>{
+const showInfo = (id,isliked,root) =>{
     root.innerHTML = `
-    <div class="app_left">
+        <div class="app_left">
             <img src="${listShoe[id-1].image}">
         </div>
         <div class="app_right">
@@ -13,6 +13,9 @@ const showInfo = (id,isliked,isadded,root) =>{
             <div class="shoe_price">
                 <p class="shoe_newprice">$${listShoe[id-1].price}</p>
                 <p class="shoe_oldprice">$${listShoe[id-1].oldprice}</p>
+            </div>
+            <div class="rps_img">
+                <img src="${listShoe[id-1].image}">
             </div>
             <div class="select_size">
                 <div class="select_size_name">
