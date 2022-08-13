@@ -209,19 +209,17 @@
 
         //first
         showHome(document.querySelector(".app_right"));
-        showBag(listShoe,curUserr.bagshoe,document.querySelector(".listbag"));
-
 
         returnLogin.onclick= () =>{
-            window.location.href="./login.html";
+            window.location.href='./login.html';
             localStorage.removeItem("lastlogin");
         }
         document.querySelector(".menu_login").onclick= () =>{
-            window.location.href="./login.html";
+            window.location.href='./login.html';
             localStorage.removeItem("lastlogin");
         }
         document.querySelector(".menu_logout").onclick= () =>{
-            window.location.href="./login.html";
+            window.location.href='./login.html';
         }
         document.querySelector(".menu_editprofile").onclick= () =>{
             toggleModal();
@@ -309,6 +307,11 @@
 
         //togglebag
         document.querySelector('.iconbag').onclick = () =>{
+            if(lastLogin.getDay() == timeNow.getDay() && lastLogin.getMonth() == timeNow.getMonth() && lastLogin.getFullYear() == timeNow.getFullYear()){
+                showBag(listShoe,curUserr.bagshoe,document.querySelector(".listbag"));
+            }else{
+                window.location.href ='./login.html';
+            }
             if(!document.querySelector('.listbag').classList.contains('active')){
                 blockALLActive();
                 blackPage.classList.toggle("active");
