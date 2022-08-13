@@ -9,7 +9,7 @@
     width: 300px;
     height: 400px;
     top:50px;
-    right:-30px;
+    right:0px;
     transform: scale(0);
     opacity: 0;
     border-radius: 10px;

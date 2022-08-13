@@ -110,7 +110,7 @@
             </ul>
         </div>
         <div class="mybag">
-            <i class="fa-solid fa-basket-shopping"></i>
+            <i class="fa-solid fa-basket-shopping iconbag"></i>
             <ul class="listbag">
             </ul>
         </div>
@@ -308,11 +308,13 @@
         }
 
         //togglebag
-        document.querySelector('.mybag').onclick = () =>{
+        document.querySelector('.iconbag').onclick = () =>{
             if(!document.querySelector('.listbag').classList.contains('active')){
                 blockALLActive();
                 blackPage.classList.toggle("active");
                 document.querySelector('.listbag').classList.toggle('active');
+            }else{
+                blockALLActive();
             }
         }
 
