@@ -242,25 +242,36 @@ const showHome = (root) => {
             }
         }
         document.querySelector(".bgicon").onclick = () =>{
-            if(document.querySelector('.name_change.left').innerHTML=="VN"){
-                if(document.querySelector('.name_change.right').innerHTML=="US"){
-                    document.querySelector(".input_size.right").value = parseInt(document.querySelector(".input_size.left").value) - 33;
-                }else{
-                    document.querySelector(".input_size.right").value = parseInt(document.querySelector(".input_size.left").value) - 16.5;
+            if(document.querySelector(".input_size.left").value > 34 && document.querySelector(".input_size.left").value < 48 && document.querySelector('.name_change.left').innerHTML=="VN" 
+            || document.querySelector(".input_size.left").value > 23 && document.querySelector(".input_size.left").value < 30 && document.querySelector('.name_change.left').innerHTML=="CM" 
+            || document.querySelector(".input_size.left").value > 7  && document.querySelector(".input_size.left").value < 12 && document.querySelector('.name_change.left').innerHTML=="CM" ){
+                if(document.querySelector('.name_change.left').innerHTML=="VN"){
+                    if(document.querySelector('.name_change.right').innerHTML=="US"){
+                        document.querySelector(".input_size.right").value = parseFloat(document.querySelector(".input_size.left").value) - 33;
+                    }else{
+                        document.querySelector(".input_size.right").value = parseFloat(document.querySelector(".input_size.left").value) - 16.5;
+                    }
                 }
-            }
-            if(document.querySelector('.name_change.left').innerHTML=="US"){
-                if(document.querySelector('.name_change.right').innerHTML=="VN"){
-                    document.querySelector(".input_size.right").value = parseInt(document.querySelector(".input_size.left").value) + 33;
-                }else{
-                    document.querySelector(".input_size.right").value = parseInt(document.querySelector(".input_size.left").value) + 16.5;
+                if(document.querySelector('.name_change.left').innerHTML=="US"){
+                    if(document.querySelector('.name_change.right').innerHTML=="VN"){
+                        document.querySelector(".input_size.right").value = parseFloat(document.querySelector(".input_size.left").value) + 33;
+                    }else{
+                        document.querySelector(".input_size.right").value = parseFloat(document.querySelector(".input_size.left").value) + 16.5;
+                    }
+                }if(document.querySelector('.name_change.left').innerHTML=="CM"){
+                    if(document.querySelector('.name_change.right').innerHTML=="US"){
+                        document.querySelector(".input_size.right").value = parseFloat(document.querySelector(".input_size.left").value) - 16.5;
+                    }else{
+                        document.querySelector(".input_size.right").value = parseFloat(document.querySelector(".input_size.left").value) + 16.5;
+                    }
                 }
-            }if(document.querySelector('.name_change.left').innerHTML=="CM"){
-                if(document.querySelector('.name_change.right').innerHTML=="US"){
-                    document.querySelector(".input_size.right").value = parseInt(document.querySelector(".input_size.left").value) - 16.5;
-                }else{
-                    document.querySelector(".input_size.right").value = parseInt(document.querySelector(".input_size.left").value) + 16.5;
-                }
+            }else{
+                toast({
+                    title: "Error",
+                    message: "your size isn't comfortable in our store",
+                    type: "error",
+                    duration: 3000
+                });
             }
         }
 

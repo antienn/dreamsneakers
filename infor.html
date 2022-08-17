@@ -61,7 +61,13 @@
                     }
                 }
             }else{
-                window.location.href="./login.html";
+                toast({
+                    title: "Please login first",
+                    message: "you will return login page in 5 second",
+                    type: "warning",
+                    duration: 3000
+                });
+                setTimeout(window.location.href="./login.html", 5000);
             }
         }
         document.querySelector(".heart").onclick = () =>{
@@ -132,7 +138,17 @@
             }
         }
         document.querySelector(".method_add").onclick = () =>{
-            addshoe();
+            if(lastLogin.getDay() == timeNow.getDay() && lastLogin.getMonth() == timeNow.getMonth() && lastLogin.getFullYear() == timeNow.getFullYear()){
+                addshoe();
+            }else{
+                toast({
+                    title: "Please login first",
+                    message: "you will return login page in 5 second",
+                    type: "warning",
+                    duration: 3000
+                });
+                setTimeout(window.location.href="./login.html", 5000);
+            }
         }
 
     </script>
