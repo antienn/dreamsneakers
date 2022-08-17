@@ -65,9 +65,11 @@
                     title: "Please login first",
                     message: "you will return login page in 5 second",
                     type: "warning",
-                    duration: 3000
+                    duration: 5000
                 });
-                setTimeout(window.location.href="./login.html", 5000);
+                setTimeout((function() {
+                    window.location.href="./login.html";
+                }), 5000);
             }
         }
         document.querySelector(".heart").onclick = () =>{
@@ -76,11 +78,13 @@
         document.querySelector(".method_like").onclick = () =>{
             toggleLike();
         }
-        for(let i = 0;i< curUserr.liked.length;i++){
-            if(curUserr.liked[i]==tmpID){
-                document.querySelector('.heart').classList.add('liked');
-                document.querySelector('.method_like').classList.add('liked');
-                break;
+        if(curUserr){
+            for(let i = 0;i< curUserr.liked.length;i++){
+                if(curUserr.liked[i]==tmpID){
+                    document.querySelector('.heart').classList.add('liked');
+                    document.querySelector('.method_like').classList.add('liked');
+                    break;
+                }
             }
         }
         const selectSize = document.querySelectorAll(".list_item_size")
@@ -127,14 +131,6 @@
                         }
                     }
                 }
-            }else{
-                toast({
-                    title: "Please login first",
-                    message: "you will return login page in 5 second",
-                    type: "warning",
-                    duration: 3000
-                });
-                setTimeout(window.location.href="./login.html", 5000);
             }
         }
         document.querySelector(".method_add").onclick = () =>{
@@ -145,9 +141,11 @@
                     title: "Please login first",
                     message: "you will return login page in 5 second",
                     type: "warning",
-                    duration: 3000
+                    duration: 5000
                 });
-                setTimeout(window.location.href="./login.html", 5000);
+                setTimeout((function() {
+                    window.location.href="./login.html";
+                }), 5000);
             }
         }
 
